@@ -1,3 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+<body>
+    <nav>
+        <ul>
+            <li><a href="login.php">Login</a></li>
+        </ul>
+    </nav>
 <?php
     require('pdo.php');
 
@@ -48,11 +59,9 @@
     }
 ?>
 
-<html>
-<body>
-<head>
+
+
     <link rel="stylesheet" type="text/css" href="register_display.css">
-    <form action="registration_db.php" method="POST">
     <h2>Display Registration Inputs</h2>
     <div>
         <?php echo "Registration is complete <br>"; ?>
@@ -76,7 +85,7 @@
     <a href="login.html">Go back to login</a>
     <br>
     <h2>Go To:</h2>
-    <div type="text-align: center"><a href="questionform.php">Question Form</div>
+    <div type="text-align: center"><a href="create_new_question.php">Question Form</div>
 </head>
 </body>
 </html>
