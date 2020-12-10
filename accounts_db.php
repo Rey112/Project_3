@@ -16,3 +16,14 @@ function validate_login($email, $password) {
         return false;
     }
 }
+
+function get_user($userId) {
+    global $db;
+    $query = 'SELECT * FROM accounts WHERE id = :userId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':userId', $userId);
+    $statement->execute();
+    $user = $statement->fetch();
+    $statement->closeCursor();
+
+}
