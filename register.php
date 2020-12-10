@@ -52,6 +52,7 @@
 <body>
 <head>
     <link rel="stylesheet" type="text/css" href="register_display.css">
+    <form action="registration_db.php" method="POST">
     <h2>Display Registration Inputs</h2>
     <div>
         <?php echo "Registration is complete <br>"; ?>
