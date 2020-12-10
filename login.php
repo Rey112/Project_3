@@ -5,7 +5,7 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
-<h1>Project 2 Login</h1>
+<h1>Project 3 Login</h1>
 <body>
     <form action="display_login.php" method="post">
         <div class="container">
@@ -20,7 +20,7 @@
         <h1>Go To:</h1>
         <div style="text-align: center"><input type="submit" value="Submit"></div>
         <br><br>
-        <div style="text-align: center"><a href="register.html">Register</a></div>
+        <div style="text-align: center"><a href="registration.php">Register</a></div>
         <br>
         <div style="text-align: center"><a href="questionform.php">Question Form: </a></div>
     </form>
