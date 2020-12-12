@@ -130,8 +130,11 @@ switch ($action) {
         } else {
             $questions = get_question($questionId);
             $actionString = 'update_question';
-            include('create_new_question.php');
+            include('question_form.php');
         }
         break;
     }
+    default:{
+        $error = 'An error has occured.';
+        include('error.php');
 }
