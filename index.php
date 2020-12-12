@@ -41,6 +41,33 @@ switch ($action) {
         break;
     }
 
+    case 'submit_registration': {
+        $firstName = filter_input(INPUT_POST, 'firstName');
+        $lastName = filter_input(INPUT_POST, 'lastName');
+        $birthday = filter_input(INPUT_POST, 'birthday');
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+        if(strlen($password) < 8) {
+            echo 'Password should be at least 8 characters';
+        }
+        if (empty($firstName)){
+            echo 'First name is empty'; }
+        echo "<br>";
+        if (empty($lastName)){
+            echo 'Last name is empty'; }
+        echo "<br>";
+        if (empty($birthday)){
+            echo 'Birthday is empty'; }
+        echo "<br>";
+        if (empty($email)){
+            echo 'Email is empty'; }
+        echo "<br>";
+        if (strpos($email, '@') == false ) {
+            echo 'Email must contain an @ character';
+            echo "<br>";
+        }
+    }
+
     case 'display_questions': {
         $userId = filter_input(INPUT_GET, 'userId');
         if ($userId == NULL || $userId < 0) {
@@ -80,5 +107,31 @@ switch ($action) {
     default: {
         $error = 'Unknown Action';
         include('errors/error.php');
+    }
+
+    case 'delete_question': {
+        $questionId = filter_input(INPUT_POST, 'questionId');
+        $userId = filter_input(INPUT_POST, 'userId');
+        if ($questionId == NULL || $userId == NULL) {
+            $error = 'Please enter your information';
+            include('error.php');
+        } else {
+            delete_question($questionId);
+            header("Location: .?action=display_questions&userId=$userId");
+        }
+        break;
+    }
+    case 'edit_question': {
+        $questionId = filter_input(INPUT_POST, 'questionId');
+        $userId = filter_input(INPUT_POST, 'userId');
+        if ($questionId == NULL || $userId = NULL) {
+            $error = 'Please enter your information';
+            include('error.php');
+        } else {
+            $questions = get_question($questionId);
+            $actionString = 'update_question';
+            include('create_new_question.php');
+        }
+        break;
     }
 }
