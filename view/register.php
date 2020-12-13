@@ -56,7 +56,10 @@
         $statement->execute();
         $statement->closeCursor();
 
+
+        header("Location: login.php");
     }
+
 ?>
 
 
@@ -81,8 +84,7 @@
     <div>
         Password: <?php echo $password; ?>
     </div>
-
-    <a href="login.html">Go back to login</a>
+    
     <br>
     <h2>Go To:</h2>
     <div type="text-align: center"><a href="create_new_question.php">Question Form</div>
