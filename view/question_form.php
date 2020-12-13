@@ -7,18 +7,21 @@
         <input type="hidden" name="userId" value="<?php echo $userId; ?>">
 
         <div class="form-group">
-            <label for="title">Question Title</label>
-            <input type="text" name="title" value="<?php echo $questions['questionTitle']; ?>">
+            <label for="title">Question Of Choice</label>
+            <input type="text" name="questionOfChoice" value="<?php echo $questions['questionTitle']; ?>">
         </div>
 
         <div class="form-group">
             <label for="title">Question Body</label>
-            <input type="text" name="body" value="<?php echo $questions['questionBody'];?>">
+            <input type="text" name="questionBody" value="<?php echo $questions['questionBody'];?>">
+             <textarea name="questionBody" id="questionBody" rows="4" cols="50">
+                Enter the question in the body provided.
+            </textarea>
         </div>
 
         <div class="form-group">
             <label for="title">Question Skills</label>
-            <input type="text" name="skills" value="<?php echo $questions['questionSkills'];?>">
+            <input type="text" name="questionSkills" value="<?php echo $questions['questionSkills'];?>">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Add Question">
