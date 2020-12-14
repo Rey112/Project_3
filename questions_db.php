@@ -14,6 +14,19 @@ function get_users_questions ($userId) {
     return $questions;
 }
 
+function get_question($questionId){
+    global $db;
+
+    $query = "select * from questions where id=:questionId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':questionId', $questionId);
+    $statement->execute();
+    $question = $statement->fetch();
+    $statement->closeCursor();
+    return $question;
+
+}
+
 function get_all_questions() {
     global $db;
 
@@ -70,15 +83,3 @@ function delete_question ($questionId) {
     $statement->closeCursor();
 }
 
-function get_question($questionId){
-    global $db;
-
-    $query = "select * from questions where id=:questionId";
-    $statement = $db->prepare($query);
-    $statement->bindValue(':questionId', $questionId);
-    $statement->execute();
-    $question = $statement->fetch();
-    $statement->closeCursor();
-    return $question;
-
-}
