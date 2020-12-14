@@ -14,9 +14,6 @@
         <div class="form-group">
             <label for="title">Question Body</label>
             <input type="text" name="questionBody" value="<?php echo $questions['questionBody'];?>">
-             <textarea name="questionBody" id="questionBody" rows="4" cols="50">
-                Enter the question in the body provided.
-            </textarea>
         </div>
 
         <div class="form-group">
