@@ -13,7 +13,7 @@ if ($action == NULL) {
 
 switch ($action) {
     case 'show_login': {
-        include('view/login.php');
+        include('login.php');
         break;
     }
 
@@ -22,7 +22,7 @@ switch ($action) {
         $password = filter_input(INPUT_POST, 'password');
         if ($email == NULL || $password == NULL) {
             $error = 'Email and Password not included';
-            include('errors/error.php');
+            include('error.php');
         } else {
             $user = AccountsDB::validate_login($email, $password);
             $userId = $user->getId();
@@ -37,9 +37,18 @@ switch ($action) {
     }
 
     case 'display_registration': {
-        include('view/registration.php');
+        include('registration.php');
         break;
     }
+
+    case 'user_info':
+    {
+        $userId = filter_input(INPUT_GET, 'userId');
+        $user = get_user($userId);
+        include('user_info.php');
+        break;
+    }
+
 
     case 'submit_registration': {
         $firstName = filter_input(INPUT_POST, 'firstName');
@@ -66,15 +75,19 @@ switch ($action) {
             echo 'Email must contain an @ character';
             echo "<br>";
         }
+        register_user($firstName, $lastName, $birthday, $email, $password);
+        header("Location: .?action=show_login");
     }
 
     case 'display_questions': {
         $userId = filter_input(INPUT_GET, 'userId');
+        $listType = filter_input(INPUT_GET, 'listType');
         if ($userId == NULL || $userId < 0) {
             header('Location: .?action=display_login');
         } else {
             $questions = get_users_questions($userId);
-            include('view/display_questions.php');
+            $questions = ($listType === 'all') ? get_all_questions() : get_users_questions($userId);
+            include('display_questions.php');
         }
         break;
     }
@@ -84,29 +97,24 @@ switch ($action) {
         if ($userId == NULL || $userId < 0) {
             header("Location: .?action=display_login");
         } else {
-            include('view/question_form.php');
+            include('question_form.php');
         }
         break;
     }
 
     case 'submit_question': {
         $userId = filter_input(INPUT_POST, 'userId');
-        $title = filter_input(INPUT_POST, 'title');
-        $body = filter_input(INPUT_POST, 'body');
-        $skills = filter_input(INPUT_POST, 'skills');
-        if ($userId == NULL || $title == NULL || $body == NULL || $skills == NULL) {
+        $questionOfChoice = filter_input(INPUT_POST, 'questionOfChoice');
+        $questionBody = filter_input(INPUT_POST, 'body');
+        $questionSkills = filter_input(INPUT_POST, 'skills');
+        if ($userId == NULL || $questionOfChoice == NULL || $questionBody == NULL || $questionSkills == NULL) {
             $error = 'All fields are required';
-            include('errors/error.php');
+            include('error.php');
         } else {
-            create_question($title, $body, $skills, $userId);
+            create_question($questionOfChoice, $questionBody, $questionSkills, $userId);
             header("Location: .?action=display_questions&userId=$userId");
         }
         break;
-    }
-
-    default: {
-        $error = 'Unknown Action';
-        include('errors/error.php');
     }
 
     case 'delete_question': {
@@ -134,7 +142,26 @@ switch ($action) {
         }
         break;
     }
-    default:{
-        $error = 'An error has occured.';
+
+    case 'display_edit_question': {
+        $userId = filter_input(INPUT_POST,'userId');
+        $questionOfChoice = filter_input(INPUT_POST, 'questionOfChoice');
+        $questionBody = filter_input(INPUT_POST, 'questionBody');
+        $questionSkills = filter_input(INPUT_POST, 'questionSkills');
+        if ($userId == NULL || $questionOfChoice == NULL || $questionBody == NULL ||$questionSkills == NULL) {
+            $error = 'All fields are required';
+            include('error.php');
+        } else {
+            display_edit_question($questionOfChoice, $questionBody, $questionSkills, $userId);
+            header("Location: .?action=display_questions&userId=$userId");
+        }
+
+        break;
+    }
+    
+    default: {
+        $error = 'Unknown Action';
         include('error.php');
+    }
+
 }
