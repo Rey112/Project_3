@@ -1,13 +1,13 @@
-<?php include('abstract-views/header.php')?>
-<!DOCTYPE HTML>
+<?php include('header.php')?>
+
 <head>
     <title>Display Users Questions</title>
     <link rel="stylesheet" href="questiondisplay.css">
 </head>
 <body>
     <a href=".?action=display_question_form&userId=<?php echo $userId; ?>">Add Question</a>
+    <a href=".?action=display_questions&userId<?php echo $userId; ?>&listType=mine">My Questions</a>
     <a href=".?action=display_questions&userId<?php echo $userId; ?>&listType=all">All Questions</a>
-
 </body>
 <table>
     <tr>
@@ -27,12 +27,20 @@
                 <input type="hidden" name="questionId" value="<?php echo $question['id']; ?>">
                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                 <input type="submit" value="Delete Question">
-                <input type="submit" value="Edit Question">
             </form>
+
+            <form action="." method="post">
+                <input type="hidden" name="action" value="edit_question">
+                <input type="hidden" name="questionId" value="<?php echo $question['id']; ?>">
+                <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                <input type="submit" name="action" value="Edit Question">
+            </form>
+
+
         </td>
     <? endforeach; ?>
 </table>
 
-<?php include('abstract-views/footer.php')?>
+<?php include('footer.php')?>
 
-</HTML>
+
