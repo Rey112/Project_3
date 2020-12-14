@@ -73,6 +73,14 @@ function update_question ($title, $body, $skills, $questionId) {
     $statement->closeCursor();
 }
 
+function edit_question ($questionId) {
+	global $db;
+	$query = 'SELECT * FROM questions WHERE id = :questionId';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':questionId', $questionId);
+	$statement->execute();
+	$statement->closeCursor();
+
 function delete_question ($questionId) {
     global $db;
 
