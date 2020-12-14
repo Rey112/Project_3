@@ -41,15 +41,6 @@ switch ($action) {
         break;
     }
 
-    case 'user_info':
-    {
-        $userId = filter_input(INPUT_GET, 'userId');
-        $user = get_user($userId);
-        include('user_info.php');
-        break;
-    }
-
-
     case 'submit_registration': {
         $firstName = filter_input(INPUT_POST, 'firstName');
         $lastName = filter_input(INPUT_POST, 'lastName');
