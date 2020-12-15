@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('abstract-views/header.php'); ?>
 
     <h1>Ask New Question</h1>
 
@@ -25,4 +25,4 @@
 
     </form>
 
-<?php include('footer.php'); ?>
+<?php include('abstract-views/footer.php'); ?>
