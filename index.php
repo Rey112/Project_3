@@ -25,7 +25,6 @@ switch ($action) {
             include('error.php');
         } else {
             $userId = validate_login($email, $password);
-            $userId = $user->getId();
             if ($userId == false) {
                 header("Location: .?action=display_registration");
             } else {
