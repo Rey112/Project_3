@@ -17,9 +17,9 @@
     </tr>
     <?php foreach ($questions as $question) : ?>
         <tr>
-            <td><?php echo $question['questionOfChoice']; ?></td>
-            <td><?php echo $question['questionBody']; ?></td>
-            <td><?php echo $question['questionSkills']; ?></td>
+            <td><?php echo $question['title']; ?></td>
+            <td><?php echo $question['body']; ?></td>
+            <td><?php echo $question['skills']; ?></td>
         </tr>
         <td>
             <form action="." method="post">
