@@ -1,4 +1,4 @@
-<?php include('header.php')?>
+<?php include('abstract-views/header.php')?>
 
 <head>
     <title>Display Users Questions</title>
@@ -41,6 +41,6 @@
     <? endforeach; ?>
 </table>
 
-<?php include('footer.php')?>
+<?php include('abstract-views/footer.php')?>
 
 
