@@ -8,17 +8,17 @@
 
         <div class="form-group">
             <label for="title">Question Of Choice</label>
-            <input type="text" name="questionOfChoice" value="<?php echo $questions['questionTitle']; ?>">
+            <input type="text" name="title" value="<?php echo $questions['title']; ?>">
         </div>
 
         <div class="form-group">
             <label for="title">Question Body</label>
-            <input type="text" name="questionBody" value="<?php echo $questions['questionBody'];?>">
+            <input type="text" name="body" value="<?php echo $questions['body'];?>">
         </div>
 
         <div class="form-group">
             <label for="title">Question Skills</label>
-            <input type="text" name="questionSkills" value="<?php echo $questions['questionSkills'];?>">
+            <input type="text" name="skills" value="<?php echo $questions['skills'];?>">
         </div>
 
         <input type="submit" class="btn btn-primary" value="Add Question">
