@@ -80,6 +80,7 @@ function edit_question ($questionId) {
 	$statement->bindValue(':questionId', $questionId);
 	$statement->execute();
 	$statement->closeCursor();
+}
 
 function delete_question ($questionId) {
     global $db;
