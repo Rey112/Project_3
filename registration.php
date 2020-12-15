@@ -1,4 +1,4 @@
-<?php include('header.php')?>
+<?php include('abstract-views/header.php')?>
 
     <h1>Registration</h1>
 
@@ -26,4 +26,4 @@
         </div>
         <div style="text-align: center"><input type="submit" value="Submit"></div>
 
-<?php include('footer.php')?>
+<?php include('abstract-views/footer.php')?>
