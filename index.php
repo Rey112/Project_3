@@ -24,7 +24,7 @@ switch ($action) {
             $error = 'Email and Password not included';
             include('error.php');
         } else {
-            $user = AccountsDB::validate_login($email, $password);
+            $userId = validate_login($email, $password);
             $userId = $user->getId();
             if ($userId == false) {
                 header("Location: .?action=display_registration");
