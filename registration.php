@@ -3,6 +3,7 @@
     <h1>Registration</h1>
 
     <form action="index.php" method="post">
+    <input type="hidden" name="action" value="submit_registration">
         <div>
             <label for="Firstname">Firstname:</label><br>
             <input type="text" name="firstName" id="Firstname">
