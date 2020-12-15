@@ -68,6 +68,7 @@ switch ($action) {
         }
         register_user($firstName, $lastName, $birthday, $email, $password);
         header("Location: .?action=show_login");
+        break;
     }
 
     case 'display_questions': {
