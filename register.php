@@ -87,7 +87,7 @@
     
     <br>
     <h2>Go To:</h2>
-    <div type="text-align: center"><a href="create_new_question.php">Question Form</div>
+    <div type="text-align: center"><a href="question_form.php">Question Form</div>
 </head>
 </body>
 </html>
