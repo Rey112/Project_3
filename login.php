@@ -8,6 +8,7 @@
 <h1>Project 3 Login</h1>
 <body>
     <form action="display_login.php" method="post">
+    <input type="hidden" name="action" value="validate_login">
         <div class="container">
             <label for="email">Email</label>
             <div style="text-align: center"><input type="text" name="email" id="email"></div><br>
