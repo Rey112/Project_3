@@ -38,9 +38,10 @@
 
 
         </td>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </table>
 
 <?php include('footer.php')?>
+
 
 
