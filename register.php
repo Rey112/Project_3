@@ -10,7 +10,7 @@
         </ul>
     </nav>
 <?php
-    require('pdo.php');
+    require('register.php');
 
     $firstName = filter_input(INPUT_POST, 'firstName');
     $lastName = filter_input(INPUT_POST, 'lastName');
