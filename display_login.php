@@ -1,6 +1,6 @@
 <?php
 
-    require('pdo.php');
+    require('database.php');
 
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
