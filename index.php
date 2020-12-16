@@ -95,9 +95,9 @@ switch ($action) {
 
     case 'submit_question': {
         $userId = filter_input(INPUT_POST, 'userId');
-        $questionOfChoice = filter_input(INPUT_POST, 'title');
-        $questionBody = filter_input(INPUT_POST, 'body');
-        $questionSkills = filter_input(INPUT_POST, 'skills');
+        $title = filter_input(INPUT_POST, 'title');
+        $body = filter_input(INPUT_POST, 'body');
+        $skills = filter_input(INPUT_POST, 'skills');
         if ($userId == NULL || $title == NULL || $body == NULL || $skills == NULL) {
             $error = 'All fields are required';
             include('error.php');
@@ -136,9 +136,9 @@ switch ($action) {
 
     case 'display_edit_question': {
         $userId = filter_input(INPUT_POST,'userId');
-        $questionOfChoice = filter_input(INPUT_POST, 'title');
-        $questionBody = filter_input(INPUT_POST, 'body');
-        $questionSkills = filter_input(INPUT_POST, 'skills');
+        $title = filter_input(INPUT_POST, 'title');
+        $body = filter_input(INPUT_POST, 'body');
+        $skills = filter_input(INPUT_POST, 'skills');
         if ($userId == NULL || $title == NULL || $body == NULL ||$skills == NULL) {
             $error = 'All fields are required';
             include('error.php');
@@ -149,10 +149,25 @@ switch ($action) {
 
         break;
     }
-    
+
+    case 'view_question': {
+        $questionId = filter_input(INPUT_POST, 'questionId');
+        $userId = filter_input(INPUT_POST, 'userId');
+        if ($questionId == NULL || $userId == NULL) {
+            $error = 'All fields are required';
+            include('error.php');
+        } else {
+            $questions = get_question($questionId);
+            include('display_questions.php');
+        }
+
+        break;
+    }
+
     default: {
         $error = 'Unknown Action';
         include('error.php');
     }
-
 }
+
+?>
