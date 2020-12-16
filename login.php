@@ -7,7 +7,7 @@
 </head>
 <h1>Project 3 Login</h1>
 <body>
-    <form action="display_login.php" method="post">
+    <form action="index.php" method="post">
     <input type="hidden" name="action" value="validate_login">
         <div class="container">
             <label for="email">Email</label>
