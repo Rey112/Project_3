@@ -2,7 +2,7 @@
 
 function validate_login($email, $password) {
     global $db;
-    $query = 'SELECT * FROM accunts WHERE email = :email AND password = :password';
+    $query = 'SELECT * FROM accounts WHERE email = :email AND password = :password';
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
     $statement->bindValue(':password', $password);
