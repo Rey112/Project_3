@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 <table>
-    <a href=".?action=display_edit_question&userId=<?php echo $userId; ?>&listType=mine">Display Users Question</a>
+    <a href=".?action=display_questions&userId=<?php echo $userId; ?>&listType=mine">Display Users Question</a>
     <tr>
         <th>Question Of Choice</th>
         <th>Question Body</th>
