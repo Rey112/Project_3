@@ -17,7 +17,7 @@ function get_users_questions ($userId) {
 function get_question($questionId){
     global $db;
 
-    $query = "select * from questions where id=:questionId";
+    $query = 'SELECT * FROM questions WHERE id=:questionId';
     $statement = $db->prepare($query);
     $statement->bindValue(':questionId', $questionId);
     $statement->execute();
@@ -62,7 +62,7 @@ function update_question ($title, $body, $skills, $questionId) {
 
     $query = 'UPDATE questions
               SET title = :title, body = :body, skills = :skills
-              WHERE :questionId';
+              WHERE id = :questionId';
 
     $statement = $db->prepare($query);
     $statement->bindValue(':title', $title);
@@ -74,12 +74,12 @@ function update_question ($title, $body, $skills, $questionId) {
 }
 
 function edit_question ($questionId) {
-	global $db;
-	$query = 'SELECT * FROM questions WHERE id = :questionId';
-	$statement = $db->prepare($query);
-	$statement->bindValue(':questionId', $questionId);
-	$statement->execute();
-	$statement->closeCursor();
+    global $db;
+    $query = 'SELECT * FROM questions WHERE id = :questionId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':questionId', $questionId);
+    $statement->execute();
+    $statement->closeCursor();
 }
 
 function delete_question ($questionId) {
