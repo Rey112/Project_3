@@ -35,8 +35,13 @@
                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                 <input type="submit" name="action" value="Edit Question">
             </form>
-
-
+            
+            <form action"." method="post">
+                <input type="hidden" name="action" value="display_edit_question">
+                <input type="hidden" name="questionId" value="<?php echo $question['id']; ?>">
+                <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                <input type="submit" name="action" value="Display Edit Question">
+            </form>
         </td>
     <?php endforeach; ?>
 </table>
