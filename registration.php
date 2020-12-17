@@ -25,6 +25,6 @@
             <input type="text" name="password" id="Password">
             <br><br>
         </div>
-        <div style="text-align: center"><input type="submit" value="Submit" name="action"></div>
+        <div style="text-align: center"><input type="submit" value="Submit"></div>
 
 <?php include('footer.php')?>
