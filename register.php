@@ -1,23 +1,12 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-<body>
-    <nav>
-        <ul>
-            <li><a href="login.php">Login</a></li>
-        </ul>
-    </nav>
-<?php
-    require('register.php');
+<?php require('header.php');?>
 
+<?php
     $firstName = filter_input(INPUT_POST, 'firstName');
     $lastName = filter_input(INPUT_POST, 'lastName');
     $birthday = filter_input(INPUT_POST, 'birthday');
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
-
+    
 
     if(strlen($password) < 8) {
         echo 'Password should be at least 8 characters';
@@ -62,9 +51,8 @@
 
 ?>
 
-
-
-    <link rel="stylesheet" type="text/css" href="register_display.css">
+<form method="POST">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <h2>Display Registration Inputs</h2>
     <div>
         <?php echo "Registration is complete <br>"; ?>
@@ -76,7 +64,7 @@
         Last Name: <?php echo $lastName; ?>
     </div>
     <div>
-        Birtdhay: <?php echo $birthday; ?>
+        Birthday: <?php echo $birthday; ?>
     </div>
     <div>
         Email: <?php echo $email; ?>
@@ -84,10 +72,8 @@
     <div>
         Password: <?php echo $password; ?>
     </div>
-    
+
     <br>
     <h2>Go To:</h2>
     <div type="text-align: center"><a href="question_form.php">Question Form</div>
-</head>
-</body>
-</html>
+</form>
