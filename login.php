@@ -23,7 +23,7 @@
         <br><br>
         <div style="text-align: center"><a href="registration.php">Register</a></div>
         <br>
-        <div style="text-align: center"><a href="questionform.php">Question Form: </a></div>
+        <div style="text-align: center"><a href="question_form.php">Question Form: </a></div>
     </form>
 
 </body>
